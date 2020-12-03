@@ -71,7 +71,7 @@ while len(visited) < len(room_graph):
             unvisited = [room for room in rooms if room[0] not in search_visited]
             for room in unvisited:
                 # copy room path and append the exits
-                new_path = room_path[1].copy()
+                new_path = list(room_path[1])
                 new_path.append(room[1])
                 queue.append((room[0], new_path))
     # add move to the traversal path
@@ -81,8 +81,6 @@ while len(visited) < len(room_graph):
         player.travel(path)
     # add room to visited array
     visited.add(closest_unvisited[0])
-
-
 
 
 # TRAVERSAL TEST - DO NOT MODIFY
